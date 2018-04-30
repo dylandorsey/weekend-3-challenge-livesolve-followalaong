@@ -3,9 +3,13 @@
 TaskList
 [ ] Post/add a task
     [ ] ng-app
-    [ ] node/express server
+    [x] node/express server
     [ ] mongo-server connection
-    [ ] body parser setup
+    [x] body parser setup
     [ ] route setup
-    [ ] serve static files
+    [x] serve static files
     [ ] 
+
+[ ] Set up a form application
+    [x] create angular application
+    [x] bring in bootstrap

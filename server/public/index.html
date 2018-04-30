@@ -6,15 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <!-- Bootsrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+
     <script src="vendors/angular.js"></script>
     <script src="scripts/client.js"></script>
-    
+
     <title>Tasky Task List</title>
 </head>
 
-<body>
-    <h1>Task Zone</h1>
+<!-- ng-app list the minimum requirement to do some angular stuff within the wrapping tags -->
+<!-- a controller will give us more power -->
 
+<body ng-app="ToDoApp">
+
+    <!-- <div ng-controller="TaskController">
+            {{message}} 
+This is the index.html portion of how $scope works. See the client.js for the other piece of the setup. 
+        </div> -->
+    <div ng-controller="TaskController as vm" class="container-fluid">
+        {{vm.message}}
+        <!-- This row will be our banner/jumbotron -->
+        <div class="jumbotron">
+            <h1>Task Zone</h1>
+        </div>
+        <!-- The next row will contain our form -->
+        <div class="row">
+            <div class="col-md-12">
+                <input type="text"/>
+                <select name="" id="">
+                    <option >low</option>
+                    <option >medium</option>
+                    <option >high</option>
+                </select>
+                <input type="date"/>
+                <button class="btn btn-primary">Add task</button>
+            </div>
+        </div>
+        <!-- This row will be our output display -->
+        <div class="row">
+                <div class="col-md-12">
+            <h2>Stuff to do</h2>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
 </body>
 
 </html>
