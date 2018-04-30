@@ -1,15 +1,18 @@
 # weekend-3-challenge-livesolve-followalaong
 
 TaskList
-[ ] Post/add a task
-    [ ] ng-app
+[x] Post/add a task
+    [x] ng-app
     [x] node/express server
-    [ ] mongo-server connection
+    [x] mongo-server connection
     [x] body parser setup
-    [ ] route setup
+    [x] route setup
     [x] serve static files
-    [ ] 
 
-[ ] Set up a form application
+[x] Set up a form application
     [x] create angular application
     [x] bring in bootstrap
+
+[ ] Set up GET request
+[ ] Set up PUT request
+[ ] Set up DELETE request

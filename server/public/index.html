@@ -40,7 +40,7 @@ This is the index.html portion of how $scope works. See the client.js for the ot
                         <option value="medium">medium</option>
                         <option value="high">high</option>
                     </select>
-                    <input type="date" ng-model="vm.newTask.due_date"/>
+                    <input type="date" ng-model="vm.newTask.due_date" />
                     <button class="btn btn-primary" ng-click="vm.addTask()">Add task</button>
                 </form>
             </div>
@@ -49,6 +49,11 @@ This is the index.html portion of how $scope works. See the client.js for the ot
         <div class="rowp-2">
             <div class="col-md-12 m-1 p-1 border border-1">
                 <h2>Stuff to do</h2>
+                <div ng-repeat="task in vm.tasks" class="col-md-12 m-1 p-2 border border-1">
+                    <h3>{{task.task_name}}</h3>
+                    <p>Priority: {{task.priority}}</p>
+                    <p>Due: {{task.due_date}}</p>
+                </div>
             </div>
         </div>
     </div>

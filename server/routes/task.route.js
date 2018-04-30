@@ -14,4 +14,16 @@ router.post('/', (req,res) => {
     });
 });
 
+router.get('/', (req, res) => {
+    // get all tasks
+    Task.find({})
+    .then((tasks) => {
+        res.send(tasks)
+    })
+    .catch((error) => {
+        console.log('error on find', error);
+        res.sendStatus(500);
+    });
+});
+
 module.exports = router;
