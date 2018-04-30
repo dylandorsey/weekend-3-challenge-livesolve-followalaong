@@ -26,28 +26,29 @@
 This is the index.html portion of how $scope works. See the client.js for the other piece of the setup. 
         </div> -->
     <div ng-controller="TaskController as vm" class="container-fluid">
-        {{vm.message}}
         <!-- This row will be our banner/jumbotron -->
         <div class="jumbotron">
             <h1>Task Zone</h1>
         </div>
         <!-- The next row will contain our form -->
         <div class="row">
-            <div class="col-md-12">
-                <input type="text"/>
-                <select name="" id="">
-                    <option >low</option>
-                    <option >medium</option>
-                    <option >high</option>
-                </select>
-                <input type="date"/>
-                <button class="btn btn-primary">Add task</button>
+            <div class="col-md-12 m-2">
+                <form>
+                    <input type="text" ng-model="vm.newTask.task_name" placeholder="Task Name" />
+                    <select ng-model="vm.newTask.priority" name="" id="">
+                        <option value="low">low</option>
+                        <option value="medium">medium</option>
+                        <option value="high">high</option>
+                    </select>
+                    <input type="date" ng-model="vm.newTask.due_date"/>
+                    <button class="btn btn-primary" ng-click="vm.addTask()">Add task</button>
+                </form>
             </div>
         </div>
         <!-- This row will be our output display -->
-        <div class="row">
-                <div class="col-md-12">
-            <h2>Stuff to do</h2>
+        <div class="rowp-2">
+            <div class="col-md-12 m-1 p-1 border border-1">
+                <h2>Stuff to do</h2>
             </div>
         </div>
     </div>
