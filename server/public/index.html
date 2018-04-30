@@ -52,7 +52,8 @@ This is the index.html portion of how $scope works. See the client.js for the ot
                 <div ng-repeat="task in vm.tasks" class="col-md-12 m-1 p-2 border border-1">
                     <h3>{{task.task_name}}</h3>
                     <p>Priority: {{task.priority}}</p>
-                    <p>Due: {{task.due_date}}</p>
+                    <p>Due: {{task.due_date | date: "MM-dd-yyyy"}}</p>
+                    <button class="btn btn-secondary" ng-click="vm.updateTask(task)">Complete Task</button>
                 </div>
             </div>
         </div>

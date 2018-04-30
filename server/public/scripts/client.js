@@ -45,6 +45,30 @@ app.controller('TaskController', ['$http', function ($http) {
             
     }
 
+    self.updateTask = function (theTask) {
+        console.log('the task to update: ', theTask);
+        if (theTask.complete != true) {
+            theTask.complete = true;
+        }
+        else if (theTask.complete == true) {
+            theTask.complete = false;
+        }
+        $http({
+            method: 'PUT',
+            url: '/task',
+            data: theTask,
+        })
+        .then(function(response) {
+            console.log('successful PUT');
+            // reload all of the tasks from the server
+            self.getTasks();
+        })
+        .catch(function(error) {
+            console.log('error on PUT to /task', error);
+        })  
+
+    }
+
     self.getTasks();
 
 

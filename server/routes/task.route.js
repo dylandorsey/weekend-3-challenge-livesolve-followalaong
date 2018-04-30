@@ -18,10 +18,22 @@ router.get('/', (req, res) => {
     // get all tasks
     Task.find({})
     .then((tasks) => {
-        res.send(tasks)
+        res.send(tasks);
     })
     .catch((error) => {
         console.log('error on find', error);
+        res.sendStatus(500);
+    });
+});
+
+router.put('/', (req, res) => {
+    // get all tasks
+    Task.findByIdAndUpdate(req.body._id, req.body)
+    .then(() => {
+        res.sendStatus(201);
+    })
+    .catch((error) => {
+        console.log('error on update', error);
         res.sendStatus(500);
     });
 });

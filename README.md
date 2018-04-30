@@ -13,6 +13,7 @@ TaskList
     [x] create angular application
     [x] bring in bootstrap
 
-[ ] Set up GET request
-[ ] Set up PUT request
+[x] Set up GET request
+[x] Set up PUT request
+[ ] Visually indicate that a task has been marked complete
 [ ] Set up DELETE request
