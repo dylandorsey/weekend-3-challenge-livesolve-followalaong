@@ -38,4 +38,16 @@ router.put('/', (req, res) => {
     });
 });
 
+router.delete('/', (req, res) => {
+    // get all tasks
+    Task.findByIdAndRemove(req.query._id)
+    .then(() => {
+        res.sendStatus(201);
+    })
+    .catch((error) => {
+        console.log('error on delete', error);
+        res.sendStatus(500);
+    });
+});
+
 module.exports = router;

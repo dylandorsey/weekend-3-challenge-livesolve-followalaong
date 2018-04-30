@@ -71,6 +71,24 @@ app.controller('TaskController', ['$http', function ($http) {
         })  
 
     }
+    self.deleteTask = function (theTask) {
+        console.log('the task to delete: ', theTask);
+        $http({
+            method: 'DELETE',
+            url: '/task',
+            params: theTask,
+        })
+        .then(function(response) {
+            console.log('successful DELETE');
+            // reload all of the tasks from the server
+            self.getTasks();
+        })
+        .catch(function(error) {
+            console.log('error on DELETE to /task', error);
+        })  
+
+    }
+
 
     self.getTasks();
 
