@@ -7,11 +7,15 @@ app.controller('TaskController', ['$http', function ($http) {
     console.log('TaskController running');
     var self = this;
 
-    self.newTask = {
-        priority: 'low',
-        due_date: new Date(),
-    };
     self.tasks = [];
+
+    self.resetNewTask = function () {
+        self.newTask = {
+            task_name: '',
+            priority: 'low',
+            due_date: new Date(),
+        };
+    }
 
 
     self.addTask = function () {
@@ -23,8 +27,12 @@ app.controller('TaskController', ['$http', function ($http) {
         })
             .then(function (response) {
                 console.log('successful POST');
+                // reset inputs
+                self.resetNewTask();
+
                 // reload all of the tasks from the server
                 self.getTasks();
+
             })
             .catch(function (error) {
                 console.log('error on POST to /task', error);
@@ -49,7 +57,9 @@ app.controller('TaskController', ['$http', function ($http) {
     }
 
     self.toggleCompleteness = function (theTask) {
+        // reverse boolean value of the property complete
         theTask.complete = !theTask.complete;
+        // send to server for PUT
         self.updateTask(theTask);
     }
 
@@ -96,10 +106,14 @@ app.controller('TaskController', ['$http', function ($http) {
         }
     }
 
+    // start the application with default data
+    self.init = function () {
+        self.resetNewTask();
+        self.getTasks();
+    }
 
-    self.getTasks();
-
-
+    self.init();
+    
 }]);
 
 

@@ -55,7 +55,7 @@ This is the index.html portion of how $scope works. See the client.js for the ot
                     <p>Priority: {{task.priority}}</p>
                     <p>Due: {{task.due_date | date: "MM-dd-yyyy"}}</p>
                     <button ng-if="task.complete"class="btn btn-secondary" ng-click="vm.toggleCompleteness(task)">Reset Task</button>
-                    <button ng-if="!task.complete"class="btn btn-secondary" ng-click="vm.toggleCompleteness(task)">Complete Task</button>
+                    <button ng-if="!task.complete"class="btn btn-warning" ng-click="vm.toggleCompleteness(task)">Complete Task</button>
                     <button class="btn btn-danger" ng-click="vm.deleteTask(task)">Delete Task</button>
                 </div>
             </div>
