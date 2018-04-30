@@ -16,7 +16,7 @@ router.post('/', (req,res) => {
 
 router.get('/', (req, res) => {
     // get all tasks
-    Task.find({})
+    Task.find({}).sort('complete')
     .then((tasks) => {
         res.send(tasks);
     })

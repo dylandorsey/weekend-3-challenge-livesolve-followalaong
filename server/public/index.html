@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
 
+    <link rel="stylesheet" href="styles/style.css">
     <script src="vendors/angular.js"></script>
     <script src="scripts/client.js"></script>
 
@@ -49,7 +50,7 @@ This is the index.html portion of how $scope works. See the client.js for the ot
         <div class="rowp-2">
             <div class="col-md-12 m-1 p-1 border border-1">
                 <h2>Stuff to do</h2>
-                <div ng-repeat="task in vm.tasks" class="col-md-12 m-1 p-2 border border-1">
+                <div ng-class="{complete: task.complete == true }" ng-repeat="task in vm.tasks" class="col-md-12 m-1 p-2 border border-1">
                     <h3>{{task.task_name}}</h3>
                     <p>Priority: {{task.priority}}</p>
                     <p>Due: {{task.due_date | date: "MM-dd-yyyy"}}</p>

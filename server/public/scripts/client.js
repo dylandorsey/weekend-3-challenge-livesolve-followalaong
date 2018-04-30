@@ -7,7 +7,10 @@ app.controller('TaskController', ['$http', function ($http) {
     console.log('TaskController running');
     var self = this;
 
-    self.newTask = {};
+    self.newTask = {
+        priority: 'low',
+        due_date: new Date(),
+    };
     self.tasks = [];
     
 

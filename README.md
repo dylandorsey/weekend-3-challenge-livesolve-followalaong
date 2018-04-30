@@ -15,5 +15,6 @@ TaskList
 
 [x] Set up GET request
 [x] Set up PUT request
-[ ] Visually indicate that a task has been marked complete
+[x] Visually indicate that a task has been marked complete
+[x] Sort list based upon complete/incomplete
 [ ] Set up DELETE request
