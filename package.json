@@ -1,0 +1,27 @@
+{
+  "name": "weekend-3-challenge-livesolve-followalaong",
+  "version": "1.0.0",
+  "description": "TaskList [ ] Post/add a task     [ ] ng-app     [ ] node/express server     [ ] mongo-server connection     [ ] body parser setup     [ ] route setup     [ ] serve static files     [ ]",
+  "main": "server/server.js",
+  "dependencies": {
+    "angular": "^1.6.10",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "mongoose": "^5.0.16"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dylandorsey/weekend-3-challenge-livesolve-followalaong.git"
+  },
+  "author": "dylan dorsey (kris leading livesolve)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dylandorsey/weekend-3-challenge-livesolve-followalaong/issues"
+  },
+  "homepage": "https://github.com/dylandorsey/weekend-3-challenge-livesolve-followalaong#readme"
+}
