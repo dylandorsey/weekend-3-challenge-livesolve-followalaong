@@ -12,7 +12,7 @@ app.controller('TaskController', ['$http', function ($http) {
         due_date: new Date(),
     };
     self.tasks = [];
-    
+
 
     self.addTask = function () {
         console.log(`adding new task ${self.newTask}`);
@@ -21,14 +21,14 @@ app.controller('TaskController', ['$http', function ($http) {
             url: '/task',
             data: self.newTask,
         })
-        .then(function(response) {
-            console.log('successful POST');
-            // reload all of the tasks from the server
-            self.getTasks();
-        })
-        .catch(function(error) {
-            console.log('error on POST to /task', error);
-        })  
+            .then(function (response) {
+                console.log('successful POST');
+                // reload all of the tasks from the server
+                self.getTasks();
+            })
+            .catch(function (error) {
+                console.log('error on POST to /task', error);
+            })
     }
 
     self.getTasks = function () {
@@ -37,56 +37,63 @@ app.controller('TaskController', ['$http', function ($http) {
             method: 'GET',
             url: '/task',
         })
-        .then(function(response) {
-            console.log('successful GET: ', response.data);
-            self.tasks = response.data;
-   
-        })
-        .catch(function(error) {
-            console.log('error on GET from /task', error);
-        })
-            
+            .then(function (response) {
+                console.log('successful GET: ', response.data);
+                self.tasks = response.data;
+
+            })
+            .catch(function (error) {
+                console.log('error on GET from /task', error);
+            })
+
+    }
+
+    self.toggleCompleteness = function (theTask) {
+        theTask.complete = !theTask.complete;
+        self.updateTask(theTask);
     }
 
     self.updateTask = function (theTask) {
         console.log('the task to update: ', theTask);
-        if (theTask.complete != true) {
-            theTask.complete = true;
-        }
-        else if (theTask.complete == true) {
-            theTask.complete = false;
-        }
         $http({
             method: 'PUT',
             url: '/task',
             data: theTask,
         })
-        .then(function(response) {
-            console.log('successful PUT');
-            // reload all of the tasks from the server
-            self.getTasks();
-        })
-        .catch(function(error) {
-            console.log('error on PUT to /task', error);
-        })  
+            .then(function (response) {
+                console.log('successful PUT');
+                // reload all of the tasks from the server
+                self.getTasks();
+            })
+            .catch(function (error) {
+                console.log('error on PUT to /task', error);
+            })
 
     }
     self.deleteTask = function (theTask) {
         console.log('the task to delete: ', theTask);
-        $http({
-            method: 'DELETE',
-            url: '/task',
-            params: theTask,
-        })
-        .then(function(response) {
-            console.log('successful DELETE');
-            // reload all of the tasks from the server
-            self.getTasks();
-        })
-        .catch(function(error) {
-            console.log('error on DELETE to /task', error);
-        })  
-
+        // initiate confirmation dialog box
+        // this method, confirm(), returns either true or false based on
+        // the button selection within the confirmation dialog box
+        if (confirm("Oh rlly, delete the task???")) {
+            // request server to delete task
+            $http({
+                method: 'DELETE',
+                url: '/task',
+                params: theTask,
+            })
+                .then(function (response) {
+                    console.log('successful DELETE');
+                    // reload all of the tasks from the server
+                    self.getTasks();
+                })
+                .catch(function (error) {
+                    console.log('error on DELETE to /task', error);
+                })
+        }
+        else {
+            console.log('nope, not gonna delete it.');
+        }
     }
 
 
