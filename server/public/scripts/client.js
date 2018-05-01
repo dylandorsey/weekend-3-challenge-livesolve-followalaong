@@ -113,7 +113,7 @@ app.controller('TaskController', ['$http', function ($http) {
     }
 
     self.init();
-    
+
 }]);
 
 
